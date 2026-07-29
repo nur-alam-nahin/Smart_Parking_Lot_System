@@ -49,12 +49,13 @@
     <Compile Include="Entities\VahicleInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\DatabaseHelper\DBHelper.cs" />
+    <Compile Include="Repository\IRepository\IVahicleInfoRipository.cs" />
+    <Compile Include="Repository\VahicleInfoManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

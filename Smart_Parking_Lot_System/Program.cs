@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Smart_Parking_Lot_System.Entities;
+using Smart_Parking_Lot_System.Repository;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -12,52 +14,61 @@ namespace Smart_Parking_Lot_System
     {
         static void Main(string[] args)
         {
-            string connnectionString = "Server=.;Database=SmartParkingDB;Integrated Security=true;";
-
-
-            DateTime time = DateTime.Now;
-            
 
             string vechicleType = "Car";
-            int plateNumber = 104;
-            string entryTime = time.ToString("h:mm:ss");
-            double rentCost = 500;
+            int plateNumber = 105;
 
 
-            Console.WriteLine(entryTime);
-            using (SqlConnection connection = new SqlConnection(connnectionString))
-            {
-                string query = @"insert into tbl_Vehicle(VechicleType,PlateNumber) values(@VechicleType,@PlateNumber)";
+            VahicleInfo vahicleInfo = new VahicleInfo(vechicleType, plateNumber);
+            VahicleInfoManager vahicleInfoManager = new VahicleInfoManager();
 
-                SqlCommand cmd = new SqlCommand(query, connection);
-
-                cmd.Parameters.AddWithValue("VechicleType", vechicleType);
-                cmd.Parameters.AddWithValue("PlateNumber", plateNumber);
-                //cmd.Parameters.AddWithValue("EntryTime", entryTime);
-                //cmd.Parameters.AddWithValue("RentCost", rentCost);
+            vahicleInfoManager.InsertVehicle(vahicleInfo);
 
 
-                connection.Open();
 
-                int n = cmd.ExecuteNonQuery();
-
-                if (n > 0)
-                {
-                    Console.Write("Successfull");
-                }
-                else
-                {
-                    Console.Write("error");
-                }
+            //DateTime time = DateTime.Now;
 
 
-                connection.Close();
+            //string vechicleType = "Car";
+            //int plateNumber = 104;
+            //string entryTime = time.ToString("h:mm:ss");
+            //double rentCost = 500;
 
-            }
+
+            //Console.WriteLine(entryTime);
+            //using (SqlConnection connection = new SqlConnection(connnectionString))
+            //{
+            //    string query = @"insert into tbl_Vehicle(VechicleType,PlateNumber) values(@VechicleType,@PlateNumber)";
+
+            //    SqlCommand cmd = new SqlCommand(query, connection);
+
+            //    cmd.Parameters.AddWithValue("VechicleType", vechicleType);
+            //    cmd.Parameters.AddWithValue("PlateNumber", plateNumber);
+            //    //cmd.Parameters.AddWithValue("EntryTime", entryTime);
+            //    //cmd.Parameters.AddWithValue("RentCost", rentCost);
+
+
+            //    connection.Open();
+
+            //    int n = cmd.ExecuteNonQuery();
+
+            //    if (n > 0)
+            //    {
+            //        Console.Write("Successfull");
+            //    }
+            //    else
+            //    {
+            //        Console.Write("error");
+            //    }
+
+
+            //    connection.Close();
+
+            //}
 
             //DateTime dateTime = new DateTime();
 
-            //Console.WriteLine(dateTime.Date);
+            //Console.WriteLine(time.Date);
 
 
             //Console.ReadKey();
