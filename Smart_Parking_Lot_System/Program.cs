@@ -15,14 +15,28 @@ namespace Smart_Parking_Lot_System
         static void Main(string[] args)
         {
 
-            string vechicleType = "Car";
+            string vehicleType = "Car";
             int plateNumber = 105;
 
 
-            VahicleInfo vahicleInfo = new VahicleInfo(vechicleType, plateNumber);
+            // vehicle
+            VahicleInfo vahicleInfo = new VahicleInfo(vehicleType, plateNumber);
             VahicleInfoManager vahicleInfoManager = new VahicleInfoManager();
 
-            vahicleInfoManager.InsertVehicle(vahicleInfo);
+            //vahicleInfoManager.add(vahicleInfo);
+
+
+            DateTime dateTime = DateTime.Now;
+            int vehicleId = 3;
+            string date = dateTime.ToString("yyyy-MM-dd");
+            string time = dateTime.ToString("h:mm:ss");
+
+            //entry date and time 
+            EntryDateTime entryDateTime = new EntryDateTime(vehicleId,date,time);
+            EntryDateTimeManager entryDateTimeM = new EntryDateTimeManager();
+
+            entryDateTimeM.add(entryDateTime);
+
 
 
 

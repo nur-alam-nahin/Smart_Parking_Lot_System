@@ -50,6 +50,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DatabaseHelper\DBHelper.cs" />
+    <Compile Include="Repository\EntryDateTimeManager.cs" />
+    <Compile Include="Repository\IRepository\IEntryDateTimeRepository.cs" />
     <Compile Include="Repository\IRepository\IVahicleInfoRipository.cs" />
     <Compile Include="Repository\VahicleInfoManager.cs" />
   </ItemGroup>

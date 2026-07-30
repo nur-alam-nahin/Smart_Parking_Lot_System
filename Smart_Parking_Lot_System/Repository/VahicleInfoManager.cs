@@ -21,8 +21,8 @@ namespace Smart_Parking_Lot_System.Repository
                 string query = @"insert into tbl_Vehicle(VechicleType, PlateNumber) values(@VechicleType, @PlateNumber)";
 
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@VechicleType", vahicleInfo.getType());
-            cmd.Parameters.AddWithValue("@PlateNumber", vahicleInfo.getPlateNum());
+            cmd.Parameters.AddWithValue("VechicleType", vahicleInfo.getType());
+            cmd.Parameters.AddWithValue("PlateNumber", vahicleInfo.getPlateNum());
             //cmd.Parameters.AddWithValue("@EntryTime", entryTime);
             //cmd.Parameters.AddWithValue("@RentCost", rentCost);
 
