@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Smart_Parking_Lot_System.Repository.IRepository
 {
-    public interface IEntryDateTimeRepository
+    public interface IExitDateTimeRepositroy
     {
-        void add(EntryDateTime entryDateTime);
+        void add(ExitDateTime exitDateTime);
         void update();
         void delete();
-        void getAll(EntryDateTime entryDateTime);
+        void getAll(ExitDateTime exitDateTime);
     }
 }

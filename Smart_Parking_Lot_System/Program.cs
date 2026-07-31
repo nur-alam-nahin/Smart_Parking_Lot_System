@@ -40,6 +40,28 @@ namespace Smart_Parking_Lot_System
 
 
 
+
+
+            // exit date and time
+            ExitDateTime exitDateTime = new ExitDateTime(vehicleId,3, date, time,200); 
+            ExitDateTimeManager exitDateTimeManager = new ExitDateTimeManager();
+
+            exitDateTimeManager.add(exitDateTime);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             //DateTime time = DateTime.Now;
 
 

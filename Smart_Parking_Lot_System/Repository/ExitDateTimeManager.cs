@@ -10,23 +10,25 @@ using System.Threading.Tasks;
 
 namespace Smart_Parking_Lot_System.Repository
 {
-    internal class EntryDateTimeManager : DBHelper, IEntryDateTimeRepository
+    internal class ExitDateTimeManager : DBHelper, IExitDateTimeRepositroy
     {
-        public void add(EntryDateTime entryDateTime)
+        public void add(ExitDateTime exitDateTime)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = @"insert into tbl_EntryDateTime(VehicleId, EntryDate , EntryTime) values(@VehicleId, @EntryDate , @EntryTime)";
+                string query = @"insert into tbl_ExitDateTime(VehicleId, EntryId , ExitDate , ExitTime , Amount) values(@VehicleId, @EntryId , @ExitDate , @ExitTime , @Amount)";
                 SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("VehicleId", entryDateTime.getVehicleId());
-                cmd.Parameters.AddWithValue("EntryDate", entryDateTime.getEntryDate());
-                cmd.Parameters.AddWithValue("EntryTime", entryDateTime.getEntryTime());
+                cmd.Parameters.AddWithValue("VehicleId", exitDateTime.getvehicleId());
+                cmd.Parameters.AddWithValue("EntryId", exitDateTime.getEntryId());
+                cmd.Parameters.AddWithValue("ExitDate", exitDateTime.getExitDate());
+                cmd.Parameters.AddWithValue("ExitTime", exitDateTime.getExitTime());
+                cmd.Parameters.AddWithValue("Amount", exitDateTime.getAmount());
 
                 connection.Open();
 
                 int n = cmd.ExecuteNonQuery();
 
-                if(n > 0)
+                if (n > 0)
                 {
                     Console.WriteLine("successful");
                 }
@@ -39,7 +41,7 @@ namespace Smart_Parking_Lot_System.Repository
             throw new NotImplementedException();
         }
 
-        public void getAll(EntryDateTime entryDateTime)
+        public void getAll(ExitDateTime exitDateTime)
         {
             throw new NotImplementedException();
         }
