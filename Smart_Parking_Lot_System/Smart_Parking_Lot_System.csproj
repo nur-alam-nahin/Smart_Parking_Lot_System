@@ -58,6 +58,9 @@
     <Compile Include="Repository\IRepository\IExitDateTimeRepositroy.cs" />
     <Compile Include="Repository\IRepository\IVahicleInfoRipository.cs" />
     <Compile Include="Repository\VahicleInfoManager.cs" />
+    <Compile Include="SPL_BLL\CarOwnerInfoBLL.cs" />
+    <Compile Include="SPL_BLL\VahicleInfoBLL.cs" />
+    <Compile Include="SPL_UI\SPLUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

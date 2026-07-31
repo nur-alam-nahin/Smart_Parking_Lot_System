@@ -1,5 +1,6 @@
 ﻿using Smart_Parking_Lot_System.Entities;
 using Smart_Parking_Lot_System.Repository;
+using Smart_Parking_Lot_System.SPL_UI;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -15,44 +16,13 @@ namespace Smart_Parking_Lot_System
         static void Main(string[] args)
         {
 
-            string vehicleType = "Car";
-            int plateNumber = 105;
-
-
-            // vehicle
-            VahicleInfo vahicleInfo = new VahicleInfo(vehicleType, plateNumber);
-            VahicleInfoManager vahicleInfoManager = new VahicleInfoManager();
-
-            //vahicleInfoManager.add(vahicleInfo);
-
-
-            DateTime dateTime = DateTime.Now;
-            int vehicleId = 3;
-            string date = dateTime.ToString("yyyy-MM-dd");
-            string time = dateTime.ToString("h:mm:ss");
-
-            //entry date and time 
-            EntryDateTime entryDateTime = new EntryDateTime(vehicleId,date,time);
-            EntryDateTimeManager entryDateTimeM = new EntryDateTimeManager();
-
-            entryDateTimeM.add(entryDateTime);
 
 
 
+            SPLUI sp_UI = new SPLUI();
 
 
-
-            // exit date and time
-            ExitDateTime exitDateTime = new ExitDateTime(vehicleId,3, date, time,200); 
-            ExitDateTimeManager exitDateTimeManager = new ExitDateTimeManager();
-
-            exitDateTimeManager.add(exitDateTime);
-
-
-
-
-
-
+            sp_UI.ui();
 
 
 
