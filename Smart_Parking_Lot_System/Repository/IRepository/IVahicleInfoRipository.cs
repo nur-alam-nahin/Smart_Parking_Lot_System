@@ -12,7 +12,7 @@ namespace Smart_Parking_Lot_System.Repository.IRepository
         void add(VahicleInfo vahicleInfo);
         void update();
         void delete();
-        void getAll(VahicleInfo vahicleInfo);
+        List<VahicleInfo> getAll();
 
     }
 }

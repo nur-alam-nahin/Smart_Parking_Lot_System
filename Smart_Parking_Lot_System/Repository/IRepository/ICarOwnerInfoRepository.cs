@@ -12,6 +12,6 @@ namespace Smart_Parking_Lot_System.Repository.IRepository
         void add(CarOwnerInfo carOwnerInfo);
         void update();
         void delete();
-        void getAll(CarOwnerInfo carOwnerInfo);
+        List<CarOwnerInfo> getAll();
     }
 }

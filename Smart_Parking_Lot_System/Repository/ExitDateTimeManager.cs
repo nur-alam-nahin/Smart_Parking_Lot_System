@@ -16,24 +16,46 @@ namespace Smart_Parking_Lot_System.Repository
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = @"insert into tbl_ExitDateTime(VehicleId, EntryId , ExitDate , ExitTime , Amount) values(@VehicleId, @EntryId , @ExitDate , @ExitTime , @Amount)";
+                string query = @"insert into tbl_ExitDateTime(EntryId , Amount) values(@EntryId , @Amount)";
                 SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("VehicleId", exitDateTime.getvehicleId());
                 cmd.Parameters.AddWithValue("EntryId", exitDateTime.getEntryId());
-                cmd.Parameters.AddWithValue("ExitDate", exitDateTime.getExitDate());
-                cmd.Parameters.AddWithValue("ExitTime", exitDateTime.getExitTime());
                 cmd.Parameters.AddWithValue("Amount", exitDateTime.getAmount());
 
                 connection.Open();
 
                 int n = cmd.ExecuteNonQuery();
 
-                if (n > 0)
-                {
-                    Console.WriteLine("successful");
-                }
+              
                 connection.Close();
             }
+        }
+
+
+        //TimeSpan result = new TimeSpan();
+
+        //int time =  - ;
+
+       
+
+        public double calculateAmount(int Id)
+        {
+
+            EntryDateTimeManager entryDateTimeManager = new EntryDateTimeManager();
+
+            double cost = entryDateTimeManager.getTime(Id).TotalHours;
+
+            //if(entryDateTimeManager.getTime(Id).TotalHours > 1)
+            //{
+
+            //    cost = entryDateTimeManager.getTime(Id).TotalHours * 50;
+            //}
+            //else
+            //{
+            //    cost = 50;
+            //}
+            
+            return cost;
+
         }
 
         public void delete()
@@ -41,7 +63,7 @@ namespace Smart_Parking_Lot_System.Repository
             throw new NotImplementedException();
         }
 
-        public void getAll(ExitDateTime exitDateTime)
+        public List<ExitDateTime> getAll()
         {
             throw new NotImplementedException();
         }

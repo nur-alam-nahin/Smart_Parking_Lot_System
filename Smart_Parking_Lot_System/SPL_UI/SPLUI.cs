@@ -16,6 +16,9 @@ namespace Smart_Parking_Lot_System.SPL_UI
 
 
             CarOwnerInfoBLL carOwnerInfoBLL = new CarOwnerInfoBLL();
+            VahicleInfoBLL vahicleInfoBLL = new VahicleInfoBLL();
+            EntryDateTimeBLL entryDateTimeBLL = new EntryDateTimeBLL();
+            ExitDateTimeBLL exitDateTimeBLL = new ExitDateTimeBLL();
 
             int num;
             do
@@ -97,8 +100,8 @@ namespace Smart_Parking_Lot_System.SPL_UI
                         {
                             case 1:
 
-                              
 
+                                vahicleInfoBLL.vahicleAdd();
                                 break;
 
                             case 2:
@@ -145,7 +148,7 @@ namespace Smart_Parking_Lot_System.SPL_UI
                         {
                             case 1:
 
-                             
+                                entryDateTimeBLL.EntryDateTimeAdd();
 
                                 break;
 
@@ -177,7 +180,51 @@ namespace Smart_Parking_Lot_System.SPL_UI
                 }
                 else if (num == 4)
                 {
-                   
+                    do
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("-----Menu-----");
+                        Console.WriteLine("1. Add");
+                        Console.WriteLine("2. Delete");
+                        Console.WriteLine("3. Update");
+                        Console.WriteLine("4. ALL Student List");
+                        Console.WriteLine("6. Back");
+                        Console.WriteLine();
+                        Console.Write("Enter your Choice = ");
+                        num = Convert.ToInt32(Console.ReadLine());
+
+                        switch (num)
+                        {
+                            case 1:
+
+                                exitDateTimeBLL.exitDateAdd();
+
+                                break;
+
+                            case 2:
+
+
+
+                                break;
+
+                            case 3:
+
+
+
+                                break;
+
+                            case 4:
+
+
+
+                                break;
+
+                            case 5:
+
+
+                                break;
+                        }
+                    } while (num != 6);
 
                 }
 

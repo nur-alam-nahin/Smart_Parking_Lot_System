@@ -9,19 +9,22 @@ namespace Smart_Parking_Lot_System.Entities
     public class VahicleInfo
     {
         private int _Id;
+        private int _CarOwnerId;
         private string _vahicleType;
-        private int _plateNumber;
+        private string _plateNumber;
 
-        public VahicleInfo(int Id , string vahicleType, int plateNumber)
+        public VahicleInfo(int Id , int CarOwnerId , string vahicleType, string plateNumber)
         {
             _Id = Id;
+            _CarOwnerId = CarOwnerId;
             _vahicleType = vahicleType;
             _plateNumber = plateNumber;
         }
 
 
-        public VahicleInfo(string vahicleType, int plateNumber)
+        public VahicleInfo(int CarOwnerId , string vahicleType, string plateNumber)
         {
+            _CarOwnerId = CarOwnerId;
             _vahicleType = vahicleType;
             _plateNumber = plateNumber;
         }
@@ -38,13 +41,16 @@ namespace Smart_Parking_Lot_System.Entities
             return _Id;
         }
 
-
+        public int getCarOwnerId()
+        {
+            return _CarOwnerId;
+        }
         public string getType()
         {
             return _vahicleType;
         }
 
-        public int getPlateNum()
+        public string getPlateNum()
         {
             return _plateNumber;
         }

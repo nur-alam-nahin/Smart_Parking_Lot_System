@@ -16,11 +16,12 @@ namespace Smart_Parking_Lot_System.Repository
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = @"insert into tbl_EntryDateTime(VehicleId, EntryDate , EntryTime) values(@VehicleId, @EntryDate , @EntryTime)";
+                string query = @"insert into tbl_EntryDateTime(VehicleId, OwnerId , ParkingSlot) values(@VehicleId, @OwnerId , @ParkingSlot)";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("VehicleId", entryDateTime.getVehicleId());
-                cmd.Parameters.AddWithValue("EntryDate", entryDateTime.getEntryDate());
-                cmd.Parameters.AddWithValue("EntryTime", entryDateTime.getEntryTime());
+                cmd.Parameters.AddWithValue("OwnerId", entryDateTime.getownerId());
+                //cmd.Parameters.AddWithValue("EntryDateTime", entryDateTime.getEntryDateAndTime());
+                cmd.Parameters.AddWithValue("ParkingSlot", entryDateTime.getparkingSlot());
 
                 connection.Open();
 
@@ -39,7 +40,7 @@ namespace Smart_Parking_Lot_System.Repository
             throw new NotImplementedException();
         }
 
-        public void getAll(EntryDateTime entryDateTime)
+        public List<EntryDateTime> getAll()
         {
             throw new NotImplementedException();
         }
@@ -48,5 +49,99 @@ namespace Smart_Parking_Lot_System.Repository
         {
             throw new NotImplementedException();
         }
+
+
+
+        public int parkingSoltCheck()
+        {
+            //List<EntryDateTime> slotCheck = new List<EntryDateTime>();
+
+            int count = 1;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "select * from tbl_EntryDateTime";
+
+                SqlCommand cmd = new SqlCommand(query,connection);
+
+                connection.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+
+               
+                while(reader.Read())
+                {
+                    int slot = Convert.ToInt32(reader["ParkingSlot"]);
+
+                    if(slot != count)
+                    {
+                        count = slot;
+                    }
+                    
+                  
+                    count++;
+                }
+
+
+            }
+
+            return count;
+        }
+
+
+        public void exitTimeUp(int Id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"update tbl_EntryDateTime set ExitDateandTime = GETDate() where Id = @Id";
+
+                SqlCommand cmd = new SqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("Id", Id);
+
+                connection.Open();
+
+                cmd.ExecuteNonQuery();
+
+                connection.Close();
+             
+
+            }
+        }
+
+
+        public TimeSpan getTime(int Id)
+        {
+
+            
+            TimeSpan result = new TimeSpan();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"select EntryDateandTime , ExitDateandTime from  tbl_EntryDateTime  where Id = @Id";
+
+                SqlCommand cmd = new SqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("Id", Id);
+
+                connection.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    DateTime entry = Convert.ToDateTime(reader["EntryDateandTime"]);
+                    DateTime exit = Convert.ToDateTime(reader["ExitDateandTime"]);
+
+                    EntryDateTime entryDateTime = new EntryDateTime(entry, exit);
+                    result = exit - entry;
+                }
+
+
+            }
+
+            return result;
+        }
+
     }
 }

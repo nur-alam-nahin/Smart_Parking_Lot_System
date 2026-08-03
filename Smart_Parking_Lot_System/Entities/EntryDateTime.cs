@@ -10,30 +10,50 @@ namespace Smart_Parking_Lot_System.Entities
     {
         private int _Id;
         private int _vehicleId;
-        private string _entryDate;
-        private string _entryTime;
+        private int _ownerId;
+        private DateTime _entryDateAndTime;
+        private DateTime _exitDateAndTime;
+        private int _parkingSlot;
 
 
-        public EntryDateTime(int Id, int vehicleId, string entryDate , string entryTime)
+
+        public EntryDateTime(int Id, int vehicleId, int ownerId , int parkingSlot)
         {
             _Id = Id;
             _vehicleId = vehicleId;
-            _entryDate = entryDate;
-            _entryTime = entryTime;
+            _ownerId = ownerId;
+            _parkingSlot = parkingSlot;
         }
 
 
-        public EntryDateTime(int vehicleId, string entryDate, string entryTime)
+        public EntryDateTime(int vehicleId, int ownerId , int parkingSlot)
         {
             _vehicleId = vehicleId;
-            _entryDate = entryDate;
-            _entryTime = entryTime;
+            _ownerId = ownerId;
+            _parkingSlot = parkingSlot;
         }
+
+
+        public EntryDateTime(DateTime entryDateAndTime , DateTime exitDateAndTime)
+        {
+            _entryDateAndTime = entryDateAndTime;
+            _exitDateAndTime = exitDateAndTime;
+        }
+
+
+
 
 
         public EntryDateTime(int Id)
         {
             _Id = Id;
+        }
+
+
+
+        public EntryDateTime()
+        {
+
         }
 
         public int getId()
@@ -46,14 +66,27 @@ namespace Smart_Parking_Lot_System.Entities
             return _vehicleId;
         }
 
-        public string getEntryDate()
+        public int getownerId()
         {
-            return _entryDate;
+            return _ownerId;
         }
 
-        public string getEntryTime()
+        public DateTime getEntryDateAndTime()
         {
-            return _entryTime;
+            return _entryDateAndTime;
         }
+
+
+        public DateTime getexitDateAndTime()
+        {
+            return _exitDateAndTime;
+        }
+
+
+        public int getparkingSlot()
+        {
+            return _parkingSlot;
+        }
+
     }
 }

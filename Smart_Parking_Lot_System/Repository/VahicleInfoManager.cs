@@ -18,14 +18,13 @@ namespace Smart_Parking_Lot_System.Repository
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = @"insert into tbl_Vehicle(VechicleType, PlateNumber) values(@VechicleType, @PlateNumber)";
+                string query = @"insert into tbl_Vehicle(CarOwnerId , VechicleType, PlateNumber) values(@CarOwnerId,@VechicleType, @PlateNumber)";
 
             SqlCommand cmd = new SqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("CarOwnerId", vahicleInfo.getCarOwnerId());
             cmd.Parameters.AddWithValue("VechicleType", vahicleInfo.getType());
             cmd.Parameters.AddWithValue("PlateNumber", vahicleInfo.getPlateNum());
-            //cmd.Parameters.AddWithValue("@EntryTime", entryTime);
-            //cmd.Parameters.AddWithValue("@RentCost", rentCost);
-
+            
             connection.Open();
             int n = cmd.ExecuteNonQuery();
 
@@ -48,7 +47,7 @@ namespace Smart_Parking_Lot_System.Repository
             throw new NotImplementedException();
         }
 
-        public void getAll(VahicleInfo vahicleInfo)
+        public List<VahicleInfo> getAll()
         {
             throw new NotImplementedException();
         }

@@ -8,55 +8,43 @@ using System.Threading.Tasks;
 
 namespace Smart_Parking_Lot_System.SPL_BLL
 {
-    class VahicleInfoBLL
+    class EntryDateTimeBLL
     {
 
-        VahicleInfoManager vahicleInfoManager = new VahicleInfoManager();
 
+        EntryDateTimeManager entryDateTimeManager = new EntryDateTimeManager();
 
         // add
-        public void vahicleAdd()
+        public void EntryDateTimeAdd()
         {
+            Console.Write("Vechicle Id : ");
+            int vechicleId = Convert.ToInt32(Console.ReadLine());
+
             Console.Write("Car Owner Id : ");
             int ownerId = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Vechicle Type : ");
-            string type = Console.ReadLine();
-
-            Console.Write("Plate Number : ");
-            string number = Console.ReadLine();
-
-        
-            if(type == "Car")
-            {
-                VahicleInfo vahicleInfo = new VahicleInfo(ownerId, type, number);
-
-
-                vahicleInfoManager.add(vahicleInfo);
-            }
-            else if(type == "Bike")
-            {
-                VahicleInfo vahicleInfo = new VahicleInfo(ownerId, type, number);
-
-
-                vahicleInfoManager.add(vahicleInfo);
-            }
-            else if(type == "Picup")
+            if(entryDateTimeManager.parkingSoltCheck() < 4)
             {
 
-                VahicleInfo vahicleInfo = new VahicleInfo(ownerId, type, number);
-
-
-                vahicleInfoManager.add(vahicleInfo);
+                EntryDateTime entryDateTime = new EntryDateTime(vechicleId, ownerId, entryDateTimeManager.parkingSoltCheck());
+                entryDateTimeManager.add(entryDateTime);
+            }
+            else
+            {
+                Console.WriteLine("Parking Slot is Full");
             }
 
+
+          
         }
+
+
 
 
 
         // delete
 
-        public void vahicleDelete()
+        public void EntryDateTimeDelete()
         {
             Console.Write("Enter Id: ");
             int Id = Convert.ToInt32(Console.ReadLine());
@@ -71,7 +59,7 @@ namespace Smart_Parking_Lot_System.SPL_BLL
 
         // update
 
-        public void vahicleUpdate()
+        public void EntryDateTimeUpdate()
         {
             Console.Write("Enter Id: ");
             int Id = Convert.ToInt32(Console.ReadLine());
@@ -86,9 +74,9 @@ namespace Smart_Parking_Lot_System.SPL_BLL
 
         // get all
 
-        public void vahicleGetAll()
+        public void EntryDateTimeGetAll()
         {
-            Console.WriteLine("------ Vahicle List -----");
+            Console.WriteLine("------ Entry List -----");
             //bookManager.GetAll();
         }
     }

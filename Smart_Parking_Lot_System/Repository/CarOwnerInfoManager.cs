@@ -16,7 +16,7 @@ namespace Smart_Parking_Lot_System.Repository
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = @"insert into tbl_CarOwnerInfo(CarOwnerName, phone , Email , CarOwnerAddress) values(@CarOwnerName, @phone , @Email , @CarOwnerAddress)";
+                string query = @"exec sp_carOwner @CarOwnerName , @phone , @Email, @CarOwnerAddress;";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("CarOwnerName", carOwnerInfo.getName());
                 cmd.Parameters.AddWithValue("phone", carOwnerInfo.getPhone());
@@ -40,7 +40,7 @@ namespace Smart_Parking_Lot_System.Repository
             throw new NotImplementedException();
         }
 
-        public void getAll(CarOwnerInfo carOwnerInfo)
+        public List<CarOwnerInfo> getAll()
         {
             throw new NotImplementedException();
         }

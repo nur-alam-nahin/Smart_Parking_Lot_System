@@ -12,6 +12,6 @@ namespace Smart_Parking_Lot_System.Repository.IRepository
         void add(EntryDateTime entryDateTime);
         void update();
         void delete();
-        void getAll(EntryDateTime entryDateTime);
+        List<EntryDateTime> getAll();
     }
 }
