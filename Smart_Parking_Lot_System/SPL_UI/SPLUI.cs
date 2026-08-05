@@ -56,20 +56,22 @@ namespace Smart_Parking_Lot_System.SPL_UI
                                 break;
 
                             case 2:
+                                carOwnerInfoBLL.carOwnerDelete();
 
-                                
+
 
                                 break;
 
                             case 3:
 
-                               
+                                carOwnerInfoBLL.carOwnerUpdate();
 
                                 break;
 
                             case 4:
+                                carOwnerInfoBLL.carOwnerGetAll();
 
-                              
+
                                 break;
 
                             case 5:

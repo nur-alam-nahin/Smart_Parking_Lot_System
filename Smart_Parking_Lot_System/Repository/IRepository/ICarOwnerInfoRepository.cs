@@ -10,8 +10,8 @@ namespace Smart_Parking_Lot_System.Repository.IRepository
     public interface ICarOwnerInfoRepository
     {
         void add(CarOwnerInfo carOwnerInfo);
-        void update();
-        void delete();
+        void update(int Id);
+        void delete(int Id);
         List<CarOwnerInfo> getAll();
     }
 }

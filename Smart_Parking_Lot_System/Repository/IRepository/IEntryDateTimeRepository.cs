@@ -10,8 +10,8 @@ namespace Smart_Parking_Lot_System.Repository.IRepository
     public interface IEntryDateTimeRepository
     {
         void add(EntryDateTime entryDateTime);
-        void update();
-        void delete();
+        void update(int Id);
+        void delete(int Id);
         List<EntryDateTime> getAll();
     }
 }

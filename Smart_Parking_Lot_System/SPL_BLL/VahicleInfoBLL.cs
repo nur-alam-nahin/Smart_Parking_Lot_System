@@ -29,14 +29,14 @@ namespace Smart_Parking_Lot_System.SPL_BLL
         
             if(type == "Car")
             {
-                VahicleInfo vahicleInfo = new VahicleInfo(ownerId, type, number);
+                VehicleInfo vahicleInfo = new VehicleInfo(ownerId, type, number);
 
 
                 vahicleInfoManager.add(vahicleInfo);
             }
             else if(type == "Bike")
             {
-                VahicleInfo vahicleInfo = new VahicleInfo(ownerId, type, number);
+                VehicleInfo vahicleInfo = new VehicleInfo(ownerId, type, number);
 
 
                 vahicleInfoManager.add(vahicleInfo);
@@ -44,7 +44,7 @@ namespace Smart_Parking_Lot_System.SPL_BLL
             else if(type == "Picup")
             {
 
-                VahicleInfo vahicleInfo = new VahicleInfo(ownerId, type, number);
+                VehicleInfo vahicleInfo = new VehicleInfo(ownerId, type, number);
 
 
                 vahicleInfoManager.add(vahicleInfo);

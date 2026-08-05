@@ -46,7 +46,7 @@
     <Compile Include="Entities\CarOwnerInfo.cs" />
     <Compile Include="Entities\EntryDateTime.cs" />
     <Compile Include="Entities\ExitDateTime.cs" />
-    <Compile Include="Entities\VahicleInfo.cs" />
+    <Compile Include="Entities\VehicleInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CarOwnerInfoManager.cs" />

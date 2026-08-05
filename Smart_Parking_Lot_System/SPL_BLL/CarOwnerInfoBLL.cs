@@ -48,7 +48,7 @@ namespace Smart_Parking_Lot_System.SPL_BLL
 
             CarOwnerInfo carOwnerInfo = new CarOwnerInfo(Id);
 
-            //carOwnerInfoManager.delete(carOwnerInfo.getId());
+            carOwnerInfoManager.delete(carOwnerInfo.getId());
         }
 
 
@@ -61,9 +61,9 @@ namespace Smart_Parking_Lot_System.SPL_BLL
             Console.Write("Enter Id: ");
             int Id = Convert.ToInt32(Console.ReadLine());
 
-            //Books books = new Books(Id);
+            CarOwnerInfo carOwnerInfo = new CarOwnerInfo(Id);
 
-            //bookManager.Delete(books.getId());
+            carOwnerInfoManager.update(carOwnerInfo.getId());
         }
 
 
@@ -74,7 +74,7 @@ namespace Smart_Parking_Lot_System.SPL_BLL
         public void carOwnerGetAll()
         {
             Console.WriteLine("------ Car Owner List -----");
-            //bookManager.GetAll();
+            carOwnerInfoManager.getAll();
         }
 
     }

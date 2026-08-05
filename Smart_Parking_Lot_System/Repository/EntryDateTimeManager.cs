@@ -12,6 +12,8 @@ namespace Smart_Parking_Lot_System.Repository
 {
     internal class EntryDateTimeManager : DBHelper, IEntryDateTimeRepository
     {
+
+        // data insert 
         public void add(EntryDateTime entryDateTime)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -35,7 +37,7 @@ namespace Smart_Parking_Lot_System.Repository
             }
         }
 
-        public void delete()
+        public void delete(int Id)
         {
             throw new NotImplementedException();
         }
@@ -45,7 +47,7 @@ namespace Smart_Parking_Lot_System.Repository
             throw new NotImplementedException();
         }
 
-        public void update()
+        public void update(int Id)
         {
             throw new NotImplementedException();
         }

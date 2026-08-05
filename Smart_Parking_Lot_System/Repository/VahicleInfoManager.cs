@@ -14,7 +14,7 @@ namespace Smart_Parking_Lot_System.Repository
     {
         
 
-        public void add(VahicleInfo vahicleInfo)
+        public void add(VehicleInfo vahicleInfo)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -42,17 +42,17 @@ namespace Smart_Parking_Lot_System.Repository
         }
     }
 
-        public void delete()
+        public void delete(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public List<VahicleInfo> getAll()
+        public List<VehicleInfo> getAll()
         {
             throw new NotImplementedException();
         }
 
-        public void update()
+        public void update(int Id)
         {
             throw new NotImplementedException();
         }
