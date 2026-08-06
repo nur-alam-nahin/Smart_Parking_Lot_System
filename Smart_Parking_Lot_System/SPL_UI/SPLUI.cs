@@ -93,7 +93,7 @@ namespace Smart_Parking_Lot_System.SPL_UI
                         Console.WriteLine("1. Add");
                         Console.WriteLine("2. Delete");
                         Console.WriteLine("3. Update");
-                        Console.WriteLine("4. ALL Book List");
+                        Console.WriteLine("4. Vahicle List");
                         Console.WriteLine("6. Back");
                         Console.WriteLine();
                         Console.Write("Enter your Choice = ");
@@ -142,7 +142,7 @@ namespace Smart_Parking_Lot_System.SPL_UI
                         Console.WriteLine("1. Add");
                         Console.WriteLine("2. Delete");
                         Console.WriteLine("3. Update");
-                        Console.WriteLine("4. ALL Student List");
+                        Console.WriteLine("4. Entey List");
                         Console.WriteLine("6. Back");
                         Console.WriteLine();
                         Console.Write("Enter your Choice = ");
@@ -218,6 +218,7 @@ namespace Smart_Parking_Lot_System.SPL_UI
                                 break;
 
                             case 4:
+
                                 exitDateTimeBLL.selectView();
 
 
@@ -233,6 +234,7 @@ namespace Smart_Parking_Lot_System.SPL_UI
                 }
                 else if(num == 5)
                 {
+                    Console.WriteLine("------ All Info List -----");
                     exitDateTimeBLL.allList();
                 }
 
