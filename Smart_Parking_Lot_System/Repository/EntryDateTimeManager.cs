@@ -18,22 +18,31 @@ namespace Smart_Parking_Lot_System.Repository
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = @"insert into tbl_EntryDateTime(VehicleId, OwnerId , ParkingSlot) values(@VehicleId, @OwnerId , @ParkingSlot)";
+                string query = @"exec sp_EntryDateTime @VehicleId , @OwnerId , @ParkingSlot;";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("VehicleId", entryDateTime.getVehicleId());
                 cmd.Parameters.AddWithValue("OwnerId", entryDateTime.getownerId());
                 //cmd.Parameters.AddWithValue("EntryDateTime", entryDateTime.getEntryDateAndTime());
                 cmd.Parameters.AddWithValue("ParkingSlot", entryDateTime.getparkingSlot());
 
-                connection.Open();
 
-                int n = cmd.ExecuteNonQuery();
-
-                if(n > 0)
+                try
                 {
-                    Console.WriteLine("successful");
+                    connection.Open();
+                    int n = cmd.ExecuteNonQuery();
+
+                    if (n > 0)
+                    {
+                        Console.WriteLine("Successful");
+                    }
+
+                    connection.Close();
                 }
-                connection.Close();
+                catch (SqlException)
+                {
+                    Console.WriteLine("try again");
+
+                }
             }
         }
 
@@ -44,13 +53,101 @@ namespace Smart_Parking_Lot_System.Repository
 
         public List<EntryDateTime> getAll()
         {
-            throw new NotImplementedException();
+            List<EntryDateTime> datalist = new List<EntryDateTime>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"select * from EntryDateTimeGetAll";
+
+                SqlCommand cmd = new SqlCommand(query, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int Id = Convert.ToInt32(reader["Id"]);
+                    int vehicleId = Convert.ToInt32(reader["VehicleId"]);
+                    int OwnerId = Convert.ToInt32(reader["OwnerId"]);
+                    DateTime entryDateandTime = Convert.ToDateTime(reader["EntryDateandTime"]);
+                    DateTime exitDateandTime = Convert.ToDateTime(reader["ExitDateandTime"]);
+                    int parkingSlot = Convert.ToInt32(reader["ParkingSlot"]);
+
+
+                    EntryDateTime entryDateTime = new EntryDateTime(Id, vehicleId, OwnerId, entryDateandTime , exitDateandTime , parkingSlot);
+                    datalist.Add(entryDateTime);
+
+                    Console.WriteLine($"{entryDateTime.getId()} {entryDateTime.getVehicleId()} {entryDateTime.getownerId()} {entryDateTime.getEntryDateAndTime()} {entryDateTime.getexitDateAndTime()} {entryDateTime.getparkingSlot()}");
+                }
+            }
+
+            return datalist;
         }
+
+
+
 
         public void update(int Id)
         {
-            throw new NotImplementedException();
+
+            Console.Write("Vehicle Id = ");
+            int vehicleId = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Owner id = ");
+            int OwnerId = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Entry Date and Time = ");
+            DateTime entryDateandTime = Convert.ToDateTime(Console.ReadLine());
+
+            Console.Write("Exit Date and Time = ");
+            DateTime exitDateandTime = Convert.ToDateTime(Console.ReadLine());
+
+            Console.Write("ParkingSlot = ");
+            int parkingSlot = Convert.ToInt32(Console.ReadLine());
+
+
+
+
+            Console.Write("PlateNumber = ");
+            string number = Console.ReadLine();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"exec sp_EntryDateTimeUpdate @VehicleId , @OwnerId , @EntryDateandTime , @ExitDateandTime , @ParkingSlot;";
+
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("Id", Id);
+                cmd.Parameters.AddWithValue("VehicleId", vehicleId);
+                cmd.Parameters.AddWithValue("OwnerId", OwnerId);
+                cmd.Parameters.AddWithValue("EntryDateandTime", entryDateandTime);
+                cmd.Parameters.AddWithValue("ExitDateandTime", exitDateandTime);
+                cmd.Parameters.AddWithValue("ParkingSlot", parkingSlot);
+
+
+
+
+                try
+                {
+                    connection.Open();
+                    int n = cmd.ExecuteNonQuery();
+
+                    if (n > 0)
+                    {
+                        Console.WriteLine("Successful");
+                    }
+
+                    connection.Close();
+                }
+                catch (SqlException)
+                {
+                    Console.WriteLine("try again");
+
+                }
+
+            }
         }
+
+
 
 
 

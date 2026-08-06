@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\CarOwnerInfo.cs" />
+    <Compile Include="Entities\DataFullView.cs" />
     <Compile Include="Entities\EntryDateTime.cs" />
     <Compile Include="Entities\ExitDateTime.cs" />
     <Compile Include="Entities\VehicleInfo.cs" />
@@ -57,7 +58,7 @@
     <Compile Include="Repository\IRepository\IEntryDateTimeRepository.cs" />
     <Compile Include="Repository\IRepository\IExitDateTimeRepositroy.cs" />
     <Compile Include="Repository\IRepository\IVahicleInfoRipository.cs" />
-    <Compile Include="Repository\VahicleInfoManager.cs" />
+    <Compile Include="Repository\VehicleInfoManager.cs" />
     <Compile Include="SPL_BLL\CarOwnerInfoBLL.cs" />
     <Compile Include="SPL_BLL\EntryDateTimeBLL.cs" />
     <Compile Include="SPL_BLL\ExitDateTimeBLL.cs" />

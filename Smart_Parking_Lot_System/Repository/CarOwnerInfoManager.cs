@@ -96,8 +96,7 @@ namespace Smart_Parking_Lot_System.Repository
         public void update(int Id)
         {
 
-            Console.Write("Car Owner Id = ");
-            int id = Convert.ToInt32(Console.ReadLine());
+
 
             Console.Write("Name = ");
             string name = Console.ReadLine();
@@ -117,7 +116,7 @@ namespace Smart_Parking_Lot_System.Repository
 
                 SqlCommand cmd = new SqlCommand(query, connection);
 
-                cmd.Parameters.AddWithValue("Id", id);
+                cmd.Parameters.AddWithValue("Id", Id);
                 cmd.Parameters.AddWithValue("CarOwnerName", name);
                 cmd.Parameters.AddWithValue("phone", phone);
                 cmd.Parameters.AddWithValue("Email", email);

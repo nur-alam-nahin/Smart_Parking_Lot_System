@@ -11,7 +11,7 @@ namespace Smart_Parking_Lot_System.SPL_BLL
     class VahicleInfoBLL
     {
 
-        VahicleInfoManager vahicleInfoManager = new VahicleInfoManager();
+        VehicleInfoManager vahicleInfoManager = new VehicleInfoManager();
 
 
         // add
@@ -27,28 +27,22 @@ namespace Smart_Parking_Lot_System.SPL_BLL
             string number = Console.ReadLine();
 
         
-            if(type == "Car")
+            if(type == "Car" || type == "Bike" || type == "Picup")
             {
-                VehicleInfo vahicleInfo = new VehicleInfo(ownerId, type, number);
+                //if(vahicleInfoManager.check(number) == 0)
+                //{
+
+                    VehicleInfo vahicleInfo = new VehicleInfo(ownerId, type, number);
 
 
-                vahicleInfoManager.add(vahicleInfo);
+                    vahicleInfoManager.add(vahicleInfo);
+                //}
+                //else
+                //{
+                //    Console.WriteLine("this car already Here");
+                //}
             }
-            else if(type == "Bike")
-            {
-                VehicleInfo vahicleInfo = new VehicleInfo(ownerId, type, number);
-
-
-                vahicleInfoManager.add(vahicleInfo);
-            }
-            else if(type == "Picup")
-            {
-
-                VehicleInfo vahicleInfo = new VehicleInfo(ownerId, type, number);
-
-
-                vahicleInfoManager.add(vahicleInfo);
-            }
+           
 
         }
 
@@ -76,9 +70,9 @@ namespace Smart_Parking_Lot_System.SPL_BLL
             Console.Write("Enter Id: ");
             int Id = Convert.ToInt32(Console.ReadLine());
 
-            //Books books = new Books(Id);
+            VehicleInfo vahicleInfo = new VehicleInfo(Id);
 
-            //bookManager.Delete(books.getId());
+            vahicleInfoManager.update(vahicleInfo.getId());
         }
 
 
@@ -89,7 +83,7 @@ namespace Smart_Parking_Lot_System.SPL_BLL
         public void vahicleGetAll()
         {
             Console.WriteLine("------ Vahicle List -----");
-            //bookManager.GetAll();
+            vahicleInfoManager.getAll();
         }
     }
 }

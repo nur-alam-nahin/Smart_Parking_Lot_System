@@ -66,7 +66,7 @@ namespace Smart_Parking_Lot_System.SPL_BLL
 
             //Books books = new Books(Id);
 
-            //bookManager.Delete(books.getId());
+            entryDateTimeManager.update(Id);
         }
 
 
@@ -77,7 +77,7 @@ namespace Smart_Parking_Lot_System.SPL_BLL
         public void EntryDateTimeGetAll()
         {
             Console.WriteLine("------ Entry List -----");
-            //bookManager.GetAll();
+            entryDateTimeManager.getAll();
         }
     }
 }

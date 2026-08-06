@@ -17,11 +17,13 @@ namespace Smart_Parking_Lot_System.Entities
 
 
 
-        public EntryDateTime(int Id, int vehicleId, int ownerId , int parkingSlot)
+        public EntryDateTime(int Id, int vehicleId, int ownerId , DateTime entryDateAndTime , DateTime exitDateAndTime , int parkingSlot)
         {
             _Id = Id;
             _vehicleId = vehicleId;
             _ownerId = ownerId;
+            _entryDateAndTime = entryDateAndTime;
+            _exitDateAndTime = exitDateAndTime;
             _parkingSlot = parkingSlot;
         }
 

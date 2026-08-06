@@ -30,9 +30,20 @@ namespace Smart_Parking_Lot_System.SPL_BLL
             exitDateTimeManager.add(exitDateTime);
 
 
+        }
 
 
 
+        public void exitDateGetAll()
+        {
+            Console.WriteLine("------ Vahicle List -----");
+            exitDateTimeManager.getAll();
+        }
+
+
+        public void allList()
+        {
+            exitDateTimeManager.fullView();
         }
 
     }

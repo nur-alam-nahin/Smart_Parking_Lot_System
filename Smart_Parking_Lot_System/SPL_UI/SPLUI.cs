@@ -28,7 +28,8 @@ namespace Smart_Parking_Lot_System.SPL_UI
                 Console.WriteLine("2. Vahicle");
                 Console.WriteLine("3. Entry Date And Time");
                 Console.WriteLine("4. Exit Date And Time");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("5. Full List");
+                Console.WriteLine("6. Exit");
                 Console.Write("Enter your Choice = ");
                 num = Convert.ToInt32(Console.ReadLine());
 
@@ -114,12 +115,13 @@ namespace Smart_Parking_Lot_System.SPL_UI
 
                             case 3:
 
-                              
+                                vahicleInfoBLL.vahicleUpdate();
 
                                 break;
 
                             case 4:
 
+                                vahicleInfoBLL.vahicleGetAll();
 
                                 break;
 
@@ -162,13 +164,13 @@ namespace Smart_Parking_Lot_System.SPL_UI
 
                             case 3:
 
-                               
 
+                                entryDateTimeBLL.EntryDateTimeUpdate();
                                 break;
 
                             case 4:
 
-                            
+                                entryDateTimeBLL.EntryDateTimeGetAll();
 
                                 break;
 
@@ -216,7 +218,7 @@ namespace Smart_Parking_Lot_System.SPL_UI
                                 break;
 
                             case 4:
-
+                                exitDateTimeBLL.exitDateGetAll();
 
 
                                 break;
@@ -229,11 +231,15 @@ namespace Smart_Parking_Lot_System.SPL_UI
                     } while (num != 6);
 
                 }
+                else if(num == 5)
+                {
+                    exitDateTimeBLL.allList();
+                }
 
 
 
             }
-            while (num != 5);
+            while (num != 6);
         }
 
         
