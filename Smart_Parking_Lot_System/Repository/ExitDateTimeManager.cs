@@ -74,6 +74,8 @@ namespace Smart_Parking_Lot_System.Repository
             throw new NotImplementedException();
         }
 
+
+       
         public List<ExitDateTime> getAll()
         {
             List<ExitDateTime> datalist = new List<ExitDateTime>();
@@ -142,6 +144,7 @@ namespace Smart_Parking_Lot_System.Repository
 
                     datalist.Add(dataFullView);
 
+                    Console.WriteLine();
                     Console.WriteLine($" ID: {dataFullView.Id}\n Owner: {dataFullView.CarOwnerName}\n Phone: {dataFullView.Phone}\n Type: {dataFullView.VehicleType}\n Plate: {dataFullView.PlateNumber}\n Entry: {dataFullView.EntryDateandTime}\n Exit: {dataFullView.ExitDateandTime}\n Slot: {dataFullView.ParkingSlot}\n Amount: {dataFullView.Amount}");
                     Console.WriteLine();
                 }
@@ -152,8 +155,47 @@ namespace Smart_Parking_Lot_System.Repository
 
 
 
-
         // selected view 
+        public List<DataFullView> selectView(int id)
+        {
+            List<DataFullView> datalist = new List<DataFullView>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"exec sp_selectView @Id";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("Id", id);
+                connection.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    DataFullView dataFullView = new DataFullView();
+
+                    dataFullView.ParkingSlot = reader["ParkingSlot"] != DBNull.Value ? Convert.ToInt32(reader["ParkingSlot"]) : 0;
+                    dataFullView.CarOwnerName = reader["CarOwnerName"] != DBNull.Value ? Convert.ToString(reader["CarOwnerName"]) : "Unknown";
+                    dataFullView.Phone = reader["phone"] != DBNull.Value ? Convert.ToString(reader["phone"]) : "N/A";
+                    dataFullView.VehicleType = reader["VechicleType"] != DBNull.Value ? Convert.ToString(reader["VechicleType"]) : "Unknown";
+                    dataFullView.PlateNumber = reader["PlateNumber"] != DBNull.Value ? Convert.ToString(reader["PlateNumber"]) : "N/A";
+                    dataFullView.EntryDateandTime = reader["EntryDateandTime"] != DBNull.Value ? Convert.ToDateTime(reader["EntryDateandTime"]) : DateTime.MinValue;
+                    dataFullView.ExitDateandTime = reader["ExitDateandTime"] != DBNull.Value ? Convert.ToDateTime(reader["ExitDateandTime"]) : DateTime.MinValue;
+                    dataFullView.ParkingSlot = reader["ParkingSlot"] != DBNull.Value ? Convert.ToInt32(reader["ParkingSlot"]) : 0;
+                    dataFullView.Amount = reader["Amount"] != DBNull.Value ? Convert.ToDouble(reader["Amount"]) : 0.0;
+
+
+                    datalist.Add(dataFullView);
+                    Console.WriteLine();
+                    Console.WriteLine($" ID: {dataFullView.Id}\n Owner: {dataFullView.CarOwnerName}\n Phone: {dataFullView.Phone}\n Type: {dataFullView.VehicleType}\n Plate: {dataFullView.PlateNumber}\n Entry: {dataFullView.EntryDateandTime}\n Exit: {dataFullView.ExitDateandTime}\n Slot: {dataFullView.ParkingSlot}\n Amount: {dataFullView.Amount}");
+                    Console.WriteLine();
+                }
+            }
+
+            return datalist;
+        }
+
+
+
 
 
 

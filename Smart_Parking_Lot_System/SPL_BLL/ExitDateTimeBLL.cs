@@ -46,5 +46,13 @@ namespace Smart_Parking_Lot_System.SPL_BLL
             exitDateTimeManager.fullView();
         }
 
+
+        public void selectView()
+        {
+            Console.Write("Enter Id = ");
+            int enterId = Convert.ToInt32(Console.ReadLine());
+            exitDateTimeManager.selectView(enterId);
+        }
+
     }
 }

@@ -191,7 +191,7 @@ namespace Smart_Parking_Lot_System.SPL_UI
                         Console.WriteLine("1. Add");
                         Console.WriteLine("2. Delete");
                         Console.WriteLine("3. Update");
-                        Console.WriteLine("4. ALL Student List");
+                        Console.WriteLine("4. select List");
                         Console.WriteLine("6. Back");
                         Console.WriteLine();
                         Console.Write("Enter your Choice = ");
@@ -218,7 +218,7 @@ namespace Smart_Parking_Lot_System.SPL_UI
                                 break;
 
                             case 4:
-                                exitDateTimeBLL.exitDateGetAll();
+                                exitDateTimeBLL.selectView();
 
 
                                 break;
