@@ -71,7 +71,7 @@ namespace Smart_Parking_Lot_System.Repository
                     int vehicleId = Convert.ToInt32(reader["VehicleId"]);
                     int OwnerId = Convert.ToInt32(reader["OwnerId"]);
                     DateTime entryDateandTime = Convert.ToDateTime(reader["EntryDateandTime"]);
-                    DateTime exitDateandTime = Convert.ToDateTime(reader["ExitDateandTime"]);
+                    DateTime exitDateandTime = reader["ExitDateandTime"] != DBNull.Value ? Convert.ToDateTime(reader["ExitDateandTime"]) : DateTime.Now;
                     int parkingSlot = Convert.ToInt32(reader["ParkingSlot"]);
 
 

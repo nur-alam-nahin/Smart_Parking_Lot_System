@@ -130,7 +130,7 @@ namespace Smart_Parking_Lot_System.Repository
                 while(reader.Read())
                 {
                     DataFullView dataFullView = new DataFullView();
-
+                    dataFullView.Id = reader["Id"] != DBNull.Value ? Convert.ToInt32(reader["Id"]) : 0;
                     dataFullView.ParkingSlot = reader["ParkingSlot"] != DBNull.Value ? Convert.ToInt32(reader["ParkingSlot"]) : 0;
                     dataFullView.CarOwnerName = reader["CarOwnerName"] != DBNull.Value ? Convert.ToString(reader["CarOwnerName"]) : "Unknown";
                     dataFullView.Phone = reader["phone"] != DBNull.Value ? Convert.ToString(reader["phone"]) : "N/A";
@@ -173,6 +173,7 @@ namespace Smart_Parking_Lot_System.Repository
                 {
                     DataFullView dataFullView = new DataFullView();
 
+                    dataFullView.Id = reader["Id"] != DBNull.Value ? Convert.ToInt32(reader["Id"]) : 0;
                     dataFullView.ParkingSlot = reader["ParkingSlot"] != DBNull.Value ? Convert.ToInt32(reader["ParkingSlot"]) : 0;
                     dataFullView.CarOwnerName = reader["CarOwnerName"] != DBNull.Value ? Convert.ToString(reader["CarOwnerName"]) : "Unknown";
                     dataFullView.Phone = reader["phone"] != DBNull.Value ? Convert.ToString(reader["phone"]) : "N/A";
