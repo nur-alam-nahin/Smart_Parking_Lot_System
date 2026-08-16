@@ -34,24 +34,36 @@ namespace Smart_Parking_Lot_System.SPL_BLL
 
 
 
-        public void exitDateGetAll()
-        {
-            Console.WriteLine("------ Vahicle List -----");
-            exitDateTimeManager.getAll();
-        }
+        //public void exitDateGetAll()
+        //{
+        //    Console.WriteLine("------ Vahicle List -----");
+        //    exitDateTimeManager.getAll();
+        //}
 
 
+
+            // all info
         public void allList()
         {
             exitDateTimeManager.fullView();
         }
 
 
+
+        // selected info
         public void selectView()
         {
             Console.Write("Enter Id = ");
             int enterId = Convert.ToInt32(Console.ReadLine());
             exitDateTimeManager.selectView(enterId);
+        }
+
+
+        public void deleteParking()
+        {
+            Console.Write("Enter Id = ");
+            int enterId = Convert.ToInt32(Console.ReadLine());
+            exitDateTimeManager.delete(enterId);
         }
 
     }

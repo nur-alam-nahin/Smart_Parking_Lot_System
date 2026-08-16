@@ -88,10 +88,9 @@ namespace Smart_Parking_Lot_System.SPL_UI
                         Console.WriteLine();
                         Console.WriteLine("-----Menu-----");
                         Console.WriteLine("1. Add");
-                        Console.WriteLine("2. Delete");
-                        Console.WriteLine("3. Update");
-                        Console.WriteLine("4. Vahicle List");
-                        Console.WriteLine("5. Back");
+                        Console.WriteLine("2. Update");
+                        Console.WriteLine("3. Vahicle List");
+                        Console.WriteLine("4. Back");
                         Console.WriteLine();
                         Console.Write("Enter your Choice = ");
                         num = Convert.ToInt32(Console.ReadLine());
@@ -106,24 +105,24 @@ namespace Smart_Parking_Lot_System.SPL_UI
 
                             case 2:
 
+                                vahicleInfoBLL.vahicleUpdate();
                               
 
                                 break;
 
                             case 3:
 
-                                vahicleInfoBLL.vahicleUpdate();
-
-                                break;
-
-                            case 4:
-
                                 vahicleInfoBLL.vahicleGetAll();
 
                                 break;
 
+                            //case 4:
+
+
+                            //    break;
+
                         }
-                    } while (num != 5);
+                    } while (num != 4);
                     
                 }
                 else if(num == 3)
@@ -133,10 +132,9 @@ namespace Smart_Parking_Lot_System.SPL_UI
                         Console.WriteLine();
                         Console.WriteLine("-----Menu-----");
                         Console.WriteLine("1. Add");
-                        Console.WriteLine("2. Delete");
-                        Console.WriteLine("3. Update");
-                        Console.WriteLine("4. Entey List");
-                        Console.WriteLine("5. Back");
+                        Console.WriteLine("2. Update");
+                        Console.WriteLine("3. Entey List");
+                        Console.WriteLine("4. Back");
                         Console.WriteLine();
                         Console.Write("Enter your Choice = ");
                         num = Convert.ToInt32(Console.ReadLine());
@@ -151,25 +149,25 @@ namespace Smart_Parking_Lot_System.SPL_UI
 
                             case 2:
 
-                               
-
-                                break;
-
-                            case 3:
-
 
                                 entryDateTimeBLL.EntryDateTimeUpdate();
                                 break;
 
-                            case 4:
+                            case 3:
 
                                 entryDateTimeBLL.EntryDateTimeGetAll();
 
                                 break;
 
+                            //case 4:
+
+                               
+
+                            //    break;
+
                            
                         }
-                    } while (num != 5);
+                    } while (num != 4);
                     
                 }
                 else if (num == 4)
@@ -179,10 +177,9 @@ namespace Smart_Parking_Lot_System.SPL_UI
                         Console.WriteLine();
                         Console.WriteLine("-----Menu-----");
                         Console.WriteLine("1. Add");
-                        Console.WriteLine("2. Delete");
-                        Console.WriteLine("3. Update");
-                        Console.WriteLine("4. select List");
-                        Console.WriteLine("5. Back");
+                        Console.WriteLine("2. select List");
+                        Console.WriteLine("3. delete Parking");
+                        Console.WriteLine("4. Back");
                         Console.WriteLine();
                         Console.Write("Enter your Choice = ");
                         num = Convert.ToInt32(Console.ReadLine());
@@ -197,25 +194,25 @@ namespace Smart_Parking_Lot_System.SPL_UI
 
                             case 2:
 
-
+                                exitDateTimeBLL.selectView();
 
                                 break;
 
                             case 3:
 
-
-
-                                break;
-
-                            case 4:
-
-                                exitDateTimeBLL.selectView();
-
+                                exitDateTimeBLL.deleteParking();
 
                                 break;
+
+                                //case 4:
+
+
+
+
+                                //    break;
 
                         }
-                    } while (num != 5);
+                    } while (num != 4);
 
                 }
                 else if(num == 5)

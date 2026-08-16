@@ -57,7 +57,7 @@
     <Compile Include="Repository\IRepository\ICarOwnerInfoRepository.cs" />
     <Compile Include="Repository\IRepository\IEntryDateTimeRepository.cs" />
     <Compile Include="Repository\IRepository\IExitDateTimeRepositroy.cs" />
-    <Compile Include="Repository\IRepository\IVahicleInfoRipository.cs" />
+    <Compile Include="Repository\IRepository\IVehicleInfoRipository.cs" />
     <Compile Include="Repository\VehicleInfoManager.cs" />
     <Compile Include="SPL_BLL\CarOwnerInfoBLL.cs" />
     <Compile Include="SPL_BLL\EntryDateTimeBLL.cs" />

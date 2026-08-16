@@ -23,11 +23,18 @@ namespace Smart_Parking_Lot_System.SPL_BLL
             Console.Write("Car Owner Id : ");
             int ownerId = Convert.ToInt32(Console.ReadLine());
 
-            if(entryDateTimeManager.parkingSoltCheck() < 4)
+            if(entryDateTimeManager.parkingSoltCheck() < 20)
             {
+                for(int i = 0; i < 20; i++)
+                {
+                    if(entryDateTimeManager.parkingSoltCheck() != i)
+                    {
 
-                EntryDateTime entryDateTime = new EntryDateTime(vechicleId, ownerId, entryDateTimeManager.parkingSoltCheck());
-                entryDateTimeManager.add(entryDateTime);
+                        EntryDateTime entryDateTime = new EntryDateTime(vechicleId, ownerId, entryDateTimeManager.parkingSoltCheck());
+                        entryDateTimeManager.add(entryDateTime);
+                        break;
+                    }
+                }
             }
             else
             {

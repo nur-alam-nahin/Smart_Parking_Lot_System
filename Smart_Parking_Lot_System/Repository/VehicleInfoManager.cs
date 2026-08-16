@@ -10,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace Smart_Parking_Lot_System.Repository
 {
-    internal class VehicleInfoManager : DBHelper , IVahicleInfoRipository
+    internal class VehicleInfoManager : DBHelper , IVehicleInfoRipository
     {
         
 
-        public void add(VehicleInfo vahicleInfo)
+        public void add(VehicleInfo vehicleInfo)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = @"exec sp_Vehicle @CarOwnerId , @VechicleType , @PlateNumber;";
 
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("CarOwnerId", vahicleInfo.getCarOwnerId());
-            cmd.Parameters.AddWithValue("VechicleType", vahicleInfo.getType());
-            cmd.Parameters.AddWithValue("PlateNumber", vahicleInfo.getPlateNum());
+            cmd.Parameters.AddWithValue("CarOwnerId", vehicleInfo.getCarOwnerId());
+            cmd.Parameters.AddWithValue("VechicleType", vehicleInfo.getType());
+            cmd.Parameters.AddWithValue("PlateNumber", vehicleInfo.getPlateNum());
             
          
 
@@ -35,7 +35,7 @@ namespace Smart_Parking_Lot_System.Repository
 
                     if (n > 0)
                     {
-                        Console.WriteLine("Successful");
+                        Console.WriteLine("Add Successful");
                     }
                 
                     connection.Close();
@@ -117,7 +117,7 @@ namespace Smart_Parking_Lot_System.Repository
 
                     if (n > 0)
                     {
-                        Console.WriteLine("Successful");
+                        Console.WriteLine("Update Successful");
                     }
 
                     connection.Close();

@@ -33,7 +33,7 @@ namespace Smart_Parking_Lot_System.Repository
 
                     if (n > 0)
                     {
-                        Console.WriteLine("Successful");
+                        Console.WriteLine("Add Successful");
                     }
 
                     connection.Close();
@@ -133,7 +133,7 @@ namespace Smart_Parking_Lot_System.Repository
 
                     if (n > 0)
                     {
-                        Console.WriteLine("Successful");
+                        Console.WriteLine("Update Successful");
                     }
 
                     connection.Close();

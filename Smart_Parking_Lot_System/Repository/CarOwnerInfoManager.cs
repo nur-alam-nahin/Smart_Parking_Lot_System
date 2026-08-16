@@ -23,15 +23,23 @@ namespace Smart_Parking_Lot_System.Repository
                 cmd.Parameters.AddWithValue("Email", carOwnerInfo.getEmail());
                 cmd.Parameters.AddWithValue("CarOwnerAddress", carOwnerInfo.getAddress());
 
-                connection.Open();
-
-                int n = cmd.ExecuteNonQuery();
-
-                if (n > 0)
+                try
                 {
-                    Console.WriteLine("successful");
+                    connection.Open();
+                    int n = cmd.ExecuteNonQuery();
+
+                    if (n > 0)
+                    {
+                        Console.WriteLine("Add Successful");
+                    }
+
+                    connection.Close();
                 }
-                connection.Close();
+                catch (SqlException)
+                {
+                    Console.WriteLine("try again");
+
+                }
             }
         }
 
@@ -42,7 +50,7 @@ namespace Smart_Parking_Lot_System.Repository
             {
                 string query = @"exec sp_carOwnerDeleteInfo @Id;";
                 SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("Id", carOwnerInfo.getName());
+                cmd.Parameters.AddWithValue("Id", Id);
                
 
                 connection.Open();
@@ -122,16 +130,23 @@ namespace Smart_Parking_Lot_System.Repository
                 cmd.Parameters.AddWithValue("Email", email);
                 cmd.Parameters.AddWithValue("CarOwnerAddress", address);
 
-                connection.Open();
-
-                int n = cmd.ExecuteNonQuery();
-
-                if(n > 0)
+                try
                 {
-                    Console.WriteLine("successful");
-                }
+                    connection.Open();
+                    int n = cmd.ExecuteNonQuery();
 
-                connection.Close();
+                    if (n > 0)
+                    {
+                        Console.WriteLine("Update Successful");
+                    }
+
+                    connection.Close();
+                }
+                catch (SqlException)
+                {
+                    Console.WriteLine("try again");
+
+                }
             }
         }
     }

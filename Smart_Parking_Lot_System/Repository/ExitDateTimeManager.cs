@@ -28,7 +28,7 @@ namespace Smart_Parking_Lot_System.Repository
 
                     if (n > 0)
                     {
-                        Console.WriteLine("Successful");
+                        Console.WriteLine("Add Successful");
                     }
 
                     connection.Close();
@@ -71,7 +71,30 @@ namespace Smart_Parking_Lot_System.Repository
 
         public void delete(int Id)
         {
-            throw new NotImplementedException();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"exec sp_deleteParking @Id";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("Id", Id);
+
+                try
+                {
+                    connection.Open();
+
+                    int n = cmd.ExecuteNonQuery();
+
+                    if(n > 0)
+                    {
+                        Console.WriteLine("Delete Successful");
+                    }
+                    connection.Close();
+                }
+                catch(SqlException)
+                {
+                    Console.WriteLine("try again");
+                }
+            }
         }
 
 

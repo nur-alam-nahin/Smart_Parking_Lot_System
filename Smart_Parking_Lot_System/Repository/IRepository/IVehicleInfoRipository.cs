@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Smart_Parking_Lot_System.Repository.IRepository
 {
-    public interface IVahicleInfoRipository
+    public interface IVehicleInfoRipository
     {
-        void add(VehicleInfo vahicleInfo);
+        void add(VehicleInfo vehicleInfo);
         void update(int Id);
         void delete(int Id);
         List<VehicleInfo> getAll();
